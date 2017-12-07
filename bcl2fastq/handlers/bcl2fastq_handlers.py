@@ -176,7 +176,7 @@ class StartHandler(BaseBcl2FastqHandler, Bcl2FastqServiceMixin):
             cmd = job_runner.construct_command()
             # If the output directory exists, we always want to clear it.
             job_runner.delete_output()
-            job_runner.symlink_output_to_unaligned()
+            # job_runner.symlink_output_to_unaligned()
 
             log_file = self.bcl2fastq_log_file_provider.log_file_path(runfolder)
 

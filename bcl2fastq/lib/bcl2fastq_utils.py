@@ -402,14 +402,14 @@ class BCL2Fastq2xRunner(BCL2FastqRunner):
             # Note that for the base mask the "--use-bases-mask" must be included in the
             # commandline passed.
             commandline_collection.append(self.config.use_base_mask)
-        else:
-            length_of_indexes = Bcl2FastqConfig.get_length_of_indexes(self.config.runfolder_input)
-            is_single_read_run = Bcl2FastqConfig.is_single_read(self.config.runfolder_input)
-            samplesheet = Samplesheet(self.config.samplesheet_file)
-            lanes_and_base_mask = Bcl2FastqConfig. \
-                get_bases_mask_per_lane_from_samplesheet(samplesheet, length_of_indexes, is_single_read_run)
-            for lane, base_mask in lanes_and_base_mask.iteritems():
-                commandline_collection.append("--use-bases-mask {0}:{1}".format(lane, base_mask))
+        # else:
+        #     length_of_indexes = Bcl2FastqConfig.get_length_of_indexes(self.config.runfolder_input)
+        #     is_single_read_run = Bcl2FastqConfig.is_single_read(self.config.runfolder_input)
+        #     samplesheet = Samplesheet(self.config.samplesheet_file)
+        #     lanes_and_base_mask = Bcl2FastqConfig. \
+        #         get_bases_mask_per_lane_from_samplesheet(samplesheet, length_of_indexes, is_single_read_run)
+        #     for lane, base_mask in lanes_and_base_mask.iteritems():
+        #         commandline_collection.append("--use-bases-mask {0}:{1}".format(lane, base_mask))
 
         if self.config.additional_args:
             commandline_collection.append(self.config.additional_args)
